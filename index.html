@@ -40,9 +40,9 @@
 				<a class="main-down" href="#prtf"><i class="icon-down"></i></a>
 			</div> 
 
-			<div class="portfolio">
+			<div class="portfolio" id="prtf">
 				<div class="container">
-					<h2 class="section-header"id="prtf">Портфолио</h2>
+					<h2 class="section-header">Портфолио</h2>
 					<div class="row">
 						<div class="col-md-4">
 							<div class="portfolio-block">
@@ -115,6 +115,23 @@
     			var modal = $('.modal');
     			modal.find('.modal-body').load(work+'.html');
     		});
+    	});
+    </script>
+
+    <script>
+    	$(document).ready(function() {
+    		//навигация - плавной скроллинг к якорю
+    		$(".slowly").on("click", function (event) {
+    			//отменяем стандартную обработку нажатия по ссылке
+    			event.preventDefault();
+    			//забираем идентификатор блока с атрибута href
+    			var id = $(this).attr('href'),
+    			//узнаем высоту от начала страницы до блока на который ссылается якорь
+    			top = $(id).offset().top;
+    			//анимируем переход на расстояние - top за 800 мс
+    			$('body,html').animate({scrollTop: top}, 800);
+    		});
+
     	});
     </script>
   </body>
